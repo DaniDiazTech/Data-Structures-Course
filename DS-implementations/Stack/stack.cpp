@@ -1,36 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename T> struct Vector{
-  int size = 16;
-  int index;
-  T objects;
-};
-
-
 template<typename T> struct Stack{
-  int _top;
-  Vector<T> data;
+  int _top, capacity;
+  T* data;
+
   Stack(){
     _top = 0; 
-  }
-
-  void push(T element){
-    data[_top++] = element; 
-  }
-
-  T pop(){
-    if (empty()){
-      throw "Stack is empty!";
-    }
-    return data[--_top];
-  }
-
-  T top(){
-    if (empty()){
-      throw "Stack is empty!";
-    }
-    return data[_top - 1];
+    capacity = 16;
+    data = new T[capacity];
   }
 
   bool empty(){
@@ -40,9 +18,48 @@ template<typename T> struct Stack{
   int size(){
     return _top;
   }
+  
+  T top(){
+    if (empty()){
+      throw "Stack is empty!";
+    }
+    return data[_top - 1];
+  }
+  
+  void push(T element){
+    if (size() == capacity){
+      // create new array
+      capacity *= 2;
+      T* new_arr = new T[capacity];
+      // Copy elements from data to new array
+      for (int i = 0; i < size(); i++){
+        new_arr[i] = data[i];
+      }
+
+      swap(data, new_arr);
+      delete [] new_arr;
+    }
+    data[_top++] = element; 
+  }
+
+  T pop(){
+    if (empty()){
+      throw "Stack is empty!";
+    }
+    return data[--_top];
+  }
 };
 
-
 int main(){
-  Stack<int> s;
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  int n; cin >> n;
+  stack<int> s;
+  for (int i =0 ;i < n; i++){
+    s.push(i);
+  }
+  while (!s.empty()){
+    s.pop();
+  }
 }
