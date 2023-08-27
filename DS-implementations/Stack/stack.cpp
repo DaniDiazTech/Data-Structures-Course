@@ -55,11 +55,8 @@ int main(){
   cin.tie(NULL);
 
   int n; cin >> n;
-  stack<int> s;
+  Stack<int> s;
   for (int i =0 ;i < n; i++){
     s.push(i);
-  }
-  while (!s.empty()){
-    s.pop();
   }
 }
