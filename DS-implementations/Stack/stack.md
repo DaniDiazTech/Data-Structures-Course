@@ -8,7 +8,7 @@ the next member of the stack to take out will be this element we just inserted.
 
 We refer to the data stored in the stack as element because we can really store anything we want inside it.
 
-The Stack has three following methods.
+The Stack has the following methods.
 
 - `top()`: Returns the element at the top of the stack
 - `push()`: Inserts an element at the top of the stack.
