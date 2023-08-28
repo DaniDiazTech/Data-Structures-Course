@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 template<typename T> struct Stack{
@@ -59,4 +59,5 @@ int main(){
   for (int i =0 ;i < n; i++){
     s.push(i);
   }
+  return 0;
 }
