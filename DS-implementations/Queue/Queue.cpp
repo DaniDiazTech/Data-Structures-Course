@@ -1,4 +1,5 @@
-#include <iostream>
+// Made by @DaniDiazTech
+#include<iostream>
 
 // Queue implementation
 
@@ -11,7 +12,6 @@
 // front: O(1)
 // size: O(1)
 // empty: O(1)
-
 
 template<typename T> struct Queue{
   // front in place, back off by one
@@ -65,7 +65,12 @@ template<typename T> struct Queue{
       delete [] new_data;
     }
     _size++;
-    data[_back++] = element;
+    data[_back] = element;
+    _back = (_back + 1) % capacity;
   }
 
 };
+
+int main(){
+  Queue<int> q;
+}
