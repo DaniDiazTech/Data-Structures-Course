@@ -70,6 +70,7 @@ template<typename T> struct Queue{
     data[_back] = element;
     _back = (_back + 1) % capacity;
   }
+
   void print_array(){
     for (int i = 0 ; i < capacity; i++){
       std::cout << data[i] << " ";
