@@ -1,3 +1,4 @@
+// Made by @DaniDiazTech
 #include <iostream>
 #include <string>
 // Queue implementation
@@ -11,7 +12,6 @@
 // front: O(1)
 // size: O(1)
 // empty: O(1)
-
 
 template<typename T> struct Queue{
   // front in place, back off by one
@@ -44,7 +44,9 @@ template<typename T> struct Queue{
     if (empty())
       throw "Can't dequeue on empty queue";
     _size--; 
-    return data[_front++];
+    T el = data[_front];
+    _front = (_front + 1) % capacity;
+    return el;
   }
 
   // Inserts element in back
@@ -65,7 +67,15 @@ template<typename T> struct Queue{
       delete [] new_data;
     }
     _size++;
-    data[_back++] = element;
+    data[_back] = element;
+    _back = (_back + 1) % capacity;
+  }
+
+  void print_array(){
+    for (int i = 0 ; i < capacity; i++){
+      std::cout << data[i] << " ";
+    }
+    std::cout << std::endl;
   }
 
 };
