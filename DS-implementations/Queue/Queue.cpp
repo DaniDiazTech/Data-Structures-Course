@@ -20,7 +20,7 @@ template<typename T> struct Queue{
   T *data;
   Queue(){
     _front = _back = _size = 0;
-    capacity = 4;
+    capacity = 16;
     data = new T[capacity];
   }
 
