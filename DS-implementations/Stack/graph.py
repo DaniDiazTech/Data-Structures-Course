@@ -16,7 +16,7 @@ def simulate(n: int, run_command):
 
     run_process.stdin.write(to_write)
     # Makes the process run before finishing
-    run_process.communicate()
+    run_process.cmmunicate()
 
     end =time.time()
     return end - start
@@ -47,20 +47,20 @@ def produce_points(program_name, datapoints = 1000, separator = 50):
 
 def graph():
     # Implementation of stack
-    sim_points = 1000
+    sim_points = 500
     x, y = produce_points("stack", datapoints=sim_points)
 
     # Stack from the standard library
-    x2, y2 = produce_points("stack-std", datapoints=sim_points)
+    # x2, y2 = produce_points("stack-std", datapoints=sim_points)
 
     # Cuadratic 
-    # x2, y2 = produce_points("cuadratic", datapoints=sim_points)
+    x2, y2 = produce_points("cuadratic", datapoints=sim_points)
 
     plt.rcParams['figure.figsize'] = [10, 6] # set size of plot
 
     plt.plot(x, y, 'or', label = "Implementation")
-    plt.plot(x2, y2, 'ob', label = "STD")
-    # plt.plot(x2, y2, 'ob', label = "Cuadratic algo")
+    # plt.plot(x2, y2, 'ob', label = "STD")
+    plt.plot(x2, y2, 'ob', label = "Cuadratic algo")
 
     plt.legend()
 

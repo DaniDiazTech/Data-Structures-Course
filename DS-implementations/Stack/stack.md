@@ -10,6 +10,7 @@ We refer to the data stored in the stack as element because we can really store 
 
 The Stack has the following methods.
 
+
 - `top()`: Returns the element at the top of the stack
 - `push()`: Inserts an element at the top of the stack.
 - `pop()`: Takes out the element at the top of the stack and returns it.
