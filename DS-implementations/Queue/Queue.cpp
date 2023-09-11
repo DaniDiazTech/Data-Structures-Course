@@ -20,7 +20,7 @@ template<typename T> struct Queue{
   T *data;
   Queue(){
     _front = _back = _size = 0;
-    capacity = 16;
+    capacity = 4;
     data = new T[capacity];
   }
 
@@ -44,7 +44,9 @@ template<typename T> struct Queue{
     if (empty())
       throw "Can't dequeue on empty queue";
     _size--; 
-    return data[_front++];
+    T el = data[_front];
+    _front = (_front + 1) % capacity;
+    return el;
   }
 
   // Inserts element in back
@@ -68,9 +70,26 @@ template<typename T> struct Queue{
     data[_back] = element;
     _back = (_back + 1) % capacity;
   }
+  void print_array(){
+    for (int i = 0 ; i < capacity; i++){
+      std::cout << data[i] << " ";
+    }
+    std::cout << std::endl;
+  }
 
 };
 
 int main(){
   Queue<int> q;
+  q.enqueue(1);
+  q.enqueue(1);
+  q.enqueue(1);
+  q.enqueue(1);
+  std::cout << q.dequeue() << std::endl;
+  q.enqueue(2);
+  std::cout << q.dequeue() << std::endl;
+  q.enqueue(3);
+  std::cout << q.dequeue() << std::endl;
+  q.print_array();
+  std::cout << q.dequeue() << std::endl;
 }
