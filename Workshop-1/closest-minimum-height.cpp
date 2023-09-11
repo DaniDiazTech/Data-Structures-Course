@@ -94,4 +94,5 @@ int main(){
     std::cout << min_stack.top().second << " ";
     min_stack.push(Pair<int, int>(x, i)); 
   }
+  std::cout << std::endl;
 }
