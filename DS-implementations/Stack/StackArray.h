@@ -1,5 +1,11 @@
 #include <iostream>
-using namespace std;
+// Stack Array implementation
+
+// - `top()`: Returns the element at the top of the stack
+// - `push()`: Inserts an element at the top of the stack.
+// - `pop()`: Takes out the element at the top of the stack and returns it.
+// - `size()`: Returns an integer, the number of elements the stack currently stores.
+// - `empty()`: You guessed it! Returns a boolean indicating if the stack is empty or not.
 
 template<typename T> struct Stack{
   int _top, capacity;
@@ -21,7 +27,7 @@ template<typename T> struct Stack{
   
   T top(){
     if (empty()){
-      throw "Stack is empty!";
+      throw std::out_of_range("Stack is empty");
     }
     return data[_top - 1];
   }
@@ -36,7 +42,7 @@ template<typename T> struct Stack{
         new_arr[i] = data[i];
       }
 
-      swap(data, new_arr);
+      std::swap(data, new_arr);
       delete [] new_arr;
     }
     data[_top++] = element; 
@@ -44,20 +50,9 @@ template<typename T> struct Stack{
 
   T pop(){
     if (empty()){
-      throw "Stack is empty!";
+      throw std::out_of_range("Stack is empty");
     }
     return data[--_top];
   }
 };
 
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-
-  int n; cin >> n;
-  Stack<int> s;
-  for (int i =0 ;i < n; i++){
-    s.push(i);
-  }
-  return 0;
-}
