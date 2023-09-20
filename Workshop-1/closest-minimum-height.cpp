@@ -6,14 +6,6 @@
 #include "../DS-implementations/Stack/StackLinkedList.h"
 #include "../DS-implementations/Miscellaneous/Pair.h"
 
-// Implementation of stack (linear data structure)
-
-// top: O(1)
-// push: O(1) (Amortized)
-// pop: O(1)
-// empty: O(1)
-// size: O(1)
-
 // Overall complexity O(n)
 // Each element is inserted at most once, and popped once in the stack 
 int main(){
