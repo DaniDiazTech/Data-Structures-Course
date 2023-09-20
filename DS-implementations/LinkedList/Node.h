@@ -4,15 +4,20 @@ template<typename T> struct Node{
   Node *next;
   Node *parent;
 
-  Node(){}
+  Node(){
+    next = parent = nullptr;
+  }
 
   Node(T el){
+    Node();
     element = el;
   }
+
   Node(T el, Node *nxt){
     element = el;
     next = nxt;
   }
+
   Node(T el, Node *nxt, Node *par){
     element = el;
     next = nxt;

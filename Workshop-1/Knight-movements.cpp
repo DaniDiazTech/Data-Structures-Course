@@ -37,6 +37,10 @@ int main(){
     freopen("output.txt", "w", stdout);
   #endif
 
+  // fastinput
+  std::ios_base::sync_with_stdio(false);
+  std::cin.tie(NULL);
+
 
   int vis[9][9];
 

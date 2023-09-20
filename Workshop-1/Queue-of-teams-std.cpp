@@ -9,6 +9,9 @@ int main(){
     freopen("input.txt","r", stdin);
     freopen("output.txt","w", stdout);
   #endif
+  // fastinput
+  std::ios_base::sync_with_stdio(false);
+  std::cin.tie(NULL);
 
   int n;
   int mx = 1e6 + 10;

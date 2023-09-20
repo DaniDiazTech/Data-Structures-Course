@@ -22,7 +22,7 @@ template<typename T> struct LinkedList{
   int _size;
 
   LinkedList(){
-    head = tail =  NULL;
+    head = tail =  nullptr;
     _size = 0;
   }
 
@@ -35,14 +35,14 @@ template<typename T> struct LinkedList{
   }
 
   void push_back(T el){
-    if (head == NULL){
+    if (head == nullptr){
       push_front(el);
       return;
     }
 
-    Node<T> *newNode = new Node<T>(el, NULL, tail);
+    Node<T> *newNode = new Node<T>(el, nullptr, tail);
 
-    tail->next = newNode;
+    tail ->next = newNode;
 
     tail = newNode;
 
@@ -52,13 +52,13 @@ template<typename T> struct LinkedList{
   void push_front(T el){
     Node<T> *newNode = new Node<T>(el, head);  
 
-    if (head != NULL){
+    if (head != nullptr){
       head->parent = newNode;
     }
 
     head = newNode;
 
-    if (tail == NULL){
+    if (tail == nullptr){
       tail = head;
     }
 
@@ -67,11 +67,11 @@ template<typename T> struct LinkedList{
 
   T pop_front(){
     // Cannot pop head
-    if (head == NULL){
+    if (head == nullptr){
       throw std::out_of_range("Can't pop front of LinkedList");
     }
 
-    T to_return = head->element;
+    T &to_return = head->element;
 
     head = head->next;
 
@@ -83,6 +83,7 @@ template<typename T> struct LinkedList{
     }
 
     _size--;
+
     return to_return;
   }
 
@@ -91,7 +92,7 @@ template<typename T> struct LinkedList{
       return pop_front();
     }
 
-    T to_return = tail->element;
+    T &to_return = tail->element;
     tail = tail->parent;
     tail->next = NULL;
 
