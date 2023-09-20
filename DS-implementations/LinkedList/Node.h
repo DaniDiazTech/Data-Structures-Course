@@ -2,10 +2,10 @@ template<typename T> struct Node{
   T element;
 
   Node *next;
-  Node *parent;
+  Node *prev;
 
   Node(){
-    next = parent = nullptr;
+    next = prev = nullptr;
   }
 
   Node(T el){
@@ -21,7 +21,7 @@ template<typename T> struct Node{
   Node(T el, Node *nxt, Node *par){
     element = el;
     next = nxt;
-    parent = par;
+    prev = par;
   }
 };
 

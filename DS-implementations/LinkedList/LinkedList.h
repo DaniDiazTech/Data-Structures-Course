@@ -53,7 +53,7 @@ template<typename T> struct LinkedList{
     Node<T> *newNode = new Node<T>(el, head);  
 
     if (head != nullptr){
-      head->parent = newNode;
+      head->prev = newNode;
     }
 
     head = newNode;
@@ -77,7 +77,7 @@ template<typename T> struct LinkedList{
     head = head->next;
 
     if (head != nullptr){
-      head->parent = nullptr;
+      head->prev = nullptr;
     }
     else{
       tail = nullptr;
@@ -96,7 +96,7 @@ template<typename T> struct LinkedList{
     // By reference not copy element over
 
     T &to_return = tail->element;
-    tail = tail->parent;
+    tail = tail->prev;
     tail->next = nullptr;
 
     _size--;
