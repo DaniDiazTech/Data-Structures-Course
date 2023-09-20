@@ -76,11 +76,11 @@ template<typename T> struct LinkedList{
 
     head = head->next;
 
-    if (head != NULL){
-      head->parent = NULL;
+    if (head != nullptr){
+      head->parent = nullptr;
     }
     else{
-      tail = NULL;
+      tail = nullptr;
     }
 
     _size--;
@@ -97,7 +97,7 @@ template<typename T> struct LinkedList{
 
     T &to_return = tail->element;
     tail = tail->parent;
-    tail->next = NULL;
+    tail->next = nullptr;
 
     _size--;
 
