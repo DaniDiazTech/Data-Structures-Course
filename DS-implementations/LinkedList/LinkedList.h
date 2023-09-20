@@ -71,6 +71,7 @@ template<typename T> struct LinkedList{
       throw std::out_of_range("Can't pop front of LinkedList");
     }
 
+    // Access by reference
     T &to_return = head->element;
 
     head = head->next;
@@ -91,6 +92,8 @@ template<typename T> struct LinkedList{
     if (tail == head){
       return pop_front();
     }
+
+    // By reference not copy element over
 
     T &to_return = tail->element;
     tail = tail->parent;
