@@ -1,10 +1,9 @@
 // Made by @DaniDiazTech
 #include<iostream>
 
-// Queue implementation
+// Queue Array implementation
 
 // First in first out : FIFO principle
-
 
 // Methods
 // enqueue: O(1) (amortized)
@@ -35,14 +34,14 @@ template<typename T> struct Queue{
   // returns front element
   T front(){
     if (empty())
-      throw "Can't access empty queue";
+      throw std::out_of_range("Can't access empty queue");
     return data[_front];  
   }
   
   // Removes and returns front element
   T dequeue(){
     if (empty())
-      throw "Can't dequeue on empty queue";
+      throw std::out_of_range("Can't dequeue empty queue");
     _size--; 
     T el = data[_front];
     _front = (_front + 1) % capacity;
@@ -80,17 +79,3 @@ template<typename T> struct Queue{
 
 };
 
-int main(){
-  Queue<int> q;
-  q.enqueue(1);
-  q.enqueue(1);
-  q.enqueue(1);
-  q.enqueue(1);
-  std::cout << q.dequeue() << std::endl;
-  q.enqueue(2);
-  std::cout << q.dequeue() << std::endl;
-  q.enqueue(3);
-  std::cout << q.dequeue() << std::endl;
-  q.print_array();
-  std::cout << q.dequeue() << std::endl;
-}
