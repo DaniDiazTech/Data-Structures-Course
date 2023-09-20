@@ -10,25 +10,27 @@
 
 template<typename T> struct Stack : LinkedList<T>{
   // Use top part of the linked list
-  Stack(){}
+  private:
+    using LinkedList<T>::push_back;
+    using LinkedList<T>::push_front;
+    using LinkedList<T>::pop_back;
+    using LinkedList<T>::pop_front;
 
-  T top(){
-    return this->front();
-  }
+  public:
+    using LinkedList<T>::size;
+    using LinkedList<T>::empty;
 
-  void push(T el){
-    this->push_front(el);
-  }
+    Stack(){}
 
-  T pop(){
-    return this->pop_front();
-  }
+    T top(){
+      return this->front();
+    }
 
-  int size(){
-    return this->size();
-  }
+    void push(T el){
+      this->push_front(el);
+    }
 
-  bool empty(){
-    return this->empty();
-  }
+    T pop(){
+      return this->pop_front();
+    }
 };
