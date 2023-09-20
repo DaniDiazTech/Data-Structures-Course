@@ -1,7 +1,7 @@
 #include <iostream>
 // Use one stack or another
-#include "StackArray.h"
-// #include "StackLinkedList.h"
+// #include "StackArray.h"
+#include "StackLinkedList.h"
 
 using namespace std;
 
