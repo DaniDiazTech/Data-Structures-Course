@@ -1,3 +1,5 @@
+#include <iostream>
+
 // Vector array implementation
 
 // - `back()`: Returns the element at the back of the vector.
@@ -10,7 +12,7 @@ template<typename T> struct Vector{
   int _top, capacity;
   T* data;
 
-  Stack(){
+  Vector(){
     _top = 0; 
     capacity = 16;
     data = new T[capacity];
@@ -62,5 +64,11 @@ template<typename T> struct Vector{
       throw std::out_of_range("Vector is empty");
     }
     return data[--_top];
+  }
+  
+  void clear(){
+    _top = 0; 
+    capacity = 16;
+    data = new T[capacity];
   }
 };
